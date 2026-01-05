@@ -63,7 +63,7 @@ def register_device(req: RegisterDeviceRequest):
 
         # 3️⃣ Return IP and relay public key
         return {
-            "ip": f"{device['network']}.{device['ip_last_octet']}",
+            "assigned_ip": f"{device['network']}.{device['ip_last_octet']}",
             "relay_public_key": settings.RELAY_PUBLIC_KEY
         }
 
