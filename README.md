@@ -85,6 +85,29 @@ RELAY_PUBLIC_KEY=<relay_public_key_from_setup>
 
 ---
 
+## Running as a Service
+
+To run the API as a persistent `systemd` service, use the `service-setup.sh` script. This will ensure the API starts on boot and restarts automatically if it fails.
+
+Run the script with `sudo`:
+
+```bash
+sudo ./service-setup.sh
+```
+
+This will:
+- Create a systemd service file at `/etc/systemd/system/wg-relay.service`.
+- Reload the systemd daemon.
+- Enable and start the `wg-relay` service.
+
+You can check the status of the service at any time:
+
+```bash
+systemctl status wg-relay.service
+```
+
+---
+
 ## API Endpoints
 
 All endpoints are prefixed with `/devices`.
@@ -147,6 +170,7 @@ wireguard-relay-api/
 │
 ├── devices.json              # JSON file storing device info (created at runtime)
 ├── wireguard-setup.sh        # Shell script to setup WireGuard relay
+├── service-setup.sh          # Shell script to setup the app as a systemd service
 ├── requirements.txt          # Python dependencies
 └── README.md                 # This file
 ```
