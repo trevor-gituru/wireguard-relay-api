@@ -66,6 +66,25 @@ This script will:
 
 ---
 
+## Firewall Configuration
+
+If you are using a firewall, you must allow incoming traffic to the API port and the WireGuard port.
+
+For `ufw`, you can use the following commands:
+
+```bash
+# Allow WireGuard traffic (default port)
+sudo ufw allow 51820/udp
+
+# Allow API traffic (default port)
+sudo ufw allow 8000/tcp
+
+# Reload the firewall to apply changes
+sudo ufw reload
+```
+
+---
+
 ## Running the API
 **Note:** This API must be run as a superuser (`root`) because it manages WireGuard interfaces.
 Activate your virtual environment and start the FastAPI server:
